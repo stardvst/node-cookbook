@@ -6,6 +6,6 @@ process.stdin.on("data", data => {
 	}
 	else
 	{
-		process.stdout.write("Hello, World!\n");
+		process.stderr.write("Name was empty.\n");
 	}
 });
