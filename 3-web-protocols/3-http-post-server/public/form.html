@@ -7,3 +7,27 @@
   <br>
   <input type="submit" value="Submit">
 </form>
+
+<script>
+  document.forms[0].addEventListener('submit', event => {
+    console.log('zdes')
+    event.preventDefault();
+
+    const data = {
+      name: document.getElementById('name').value,
+      surname: document.getElementById('surname').value
+    };
+    console.log(data);
+
+    fetch('http://localhost:3000', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }).then(response => {
+      console.log("Response:", response);
+      return response.json();
+    });
+  });
+</script>
