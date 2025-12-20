@@ -3,6 +3,7 @@ const path = require('path');
 const serve = require('koa-static');
 const views = require('koa-views');
 const index = require('./routes/index');
+const logger = require('./middleware/logger');
 
 const PORT = process.env.PORT || 3000;
 
@@ -11,6 +12,7 @@ const app = new Koa();
 /////////////////////////////////
 // only for demo purposes
 
+/*
 app.use(async (ctx, next) => {
   console.log('First middleware start.');
   await next();
@@ -28,9 +30,11 @@ app.use(async (ctx, next) => {
   await next();
   console.log('Third middleware end.');
 });
+*/
 
 /////////////////////////////////
 
+app.use(logger());
 app.use(views(path.join(__dirname, 'views'), { extension: 'ejs' }));
 
 app.use(serve(path.join(__dirname, 'public')));
