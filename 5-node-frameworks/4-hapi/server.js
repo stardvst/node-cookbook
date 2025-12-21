@@ -9,11 +9,22 @@ const init = async () => {
     host: HOSTNAME,
   });
 
+  await server.register(require('@hapi/vision'));
+
+  server.views({
+    engines: {
+      ejs: require('ejs'),
+    },
+    relativeTo: __dirname,
+    path: 'views',
+    defaultExtension: 'ejs',
+  });
+
   server.route({
     method: 'GET',
     path: '/',
     handler: (request, h) => {
-      return 'Hello, Hapi!';
+      return h.view('index', { title: 'Hello, Hapi!' });
     },
   });
 

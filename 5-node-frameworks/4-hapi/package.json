@@ -11,6 +11,8 @@
   "license": "ISC",
   "type": "commonjs",
   "dependencies": {
-    "@hapi/hapi": "^21.4.4"
+    "@hapi/hapi": "^21.4.4",
+    "@hapi/vision": "^7.0.3",
+    "ejs": "^3.1.10"
   }
 }
