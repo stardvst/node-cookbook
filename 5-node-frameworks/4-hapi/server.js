@@ -1,4 +1,5 @@
 const Hapi = require('@hapi/hapi');
+const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 const HOSTNAME = process.env.HOSTNAME || 'localhost';
@@ -10,6 +11,7 @@ const init = async () => {
   });
 
   await server.register(require('@hapi/vision'));
+  await server.register(require('@hapi/inert'));
 
   server.views({
     engines: {
@@ -24,7 +26,8 @@ const init = async () => {
     method: 'GET',
     path: '/',
     handler: (request, h) => {
-      return h.view('index', { title: 'Hello, Hapi!' });
+      //return h.view('index', { title: 'Hello, Hapi!' });
+      return h.file(path.join(__dirname, 'files/file.txt'));
     },
   });
 

@@ -12,6 +12,7 @@
   "type": "commonjs",
   "dependencies": {
     "@hapi/hapi": "^21.4.4",
+    "@hapi/inert": "^7.1.0",
     "@hapi/vision": "^7.0.3",
     "ejs": "^3.1.10"
   }
