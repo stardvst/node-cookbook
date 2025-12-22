@@ -25,8 +25,13 @@ async function main() {
     )`);
 
     // Use parameterized queries to avoid injection and duplicates are allowed here
-    await connection.query(`INSERT INTO tasks.tasks (task) VALUES (?)`, ['Learn Node.js']);
-    await connection.query(`INSERT INTO tasks.tasks (task) VALUES (?)`, ['Learn MySQL']);
+    //await connection.query(`INSERT INTO tasks.tasks (task) VALUES (?)`, ['Learn Node.js']);
+    //await connection.query(`INSERT INTO tasks.tasks (task) VALUES (?)`, ['Learn MySQL']);
+
+    if(process.argv[2]) {
+      // mysql handles sanitization with parameterized queries
+      await connection.query(`INSERT INTO tasks.tasks (task) VALUES (?)`, [process.argv[2]]);
+    }
 
     const [rows] = await connection.query('SELECT * FROM tasks.tasks');
     console.log(rows);
