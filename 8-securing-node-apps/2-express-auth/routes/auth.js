@@ -1,4 +1,6 @@
 const { Router } = require('express');
+const { comparePassword } = require('../lib/passwords');
+const users = require('../data/users');
 const router = Router();
 
 router.get('/login', (req, res, next) => {
@@ -13,7 +15,8 @@ router.post('/login', (req, res, next) => {
     return;
   }
 
-  if(req.body.username === 'admin' && req.body.password === 'password') {
+  const user = users[req.body.username];
+  if(user && comparePassword(req.body.password, user.passwordHash)) {
     req.session.user = { name: req.body.username };
     res.redirect('/');
     next();
