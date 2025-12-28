@@ -1,0 +1,25 @@
+<html>
+
+<head>
+  <title>Express - Login</title>
+</head>
+
+<body>
+  <h1>Login Page</h1>
+
+  <% if (fail) { %>
+    <h2 style="color: red;">Login failed. Please try again.</h2>
+  <% } %>
+
+  <form method="POST" action="login">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required />
+    <br />
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required />
+    <br />
+    <button type="submit">Login</button>
+  </form>
+</body>
+
+</html>
