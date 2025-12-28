@@ -140,3 +140,4 @@ vite.config.ts.timestamp-*
 
 # Exclude nested git repositories
 4-npm-modules/1-reverse-sentence/
+7-testing/
