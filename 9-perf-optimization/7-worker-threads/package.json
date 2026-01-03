@@ -1,0 +1,13 @@
+{
+  "name": "7-worker-threads",
+  "version": "1.0.0",
+  "description": "",
+  "main": "hello-worker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
